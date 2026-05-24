@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal OS</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <h3>Personal OS</h3>
 
+            <nav>
+                <input placeholder="🔍検索">
+                <button>user</button>
+
+                <div class="hambarger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+        
+        <div class="body">
+            <aside class="sidebar">
+                <div class="sidebar__menu">
+                    <button>ダッシュボード</button>
+                    <button>タイムライン</button>
+                    <button>タスク</button>
+                    <button>プロジェクト</button>
+                    <button>学習ログ</button>
+                    <button>メモ/アイデア</button>
+                    <button>習慣トラッカー</button>
+                    <button>振り返り</button>
+                    <button>データ/分析</button>
+                </div>
+
+                <div class="sidebar__project">
+                    <h5>プロジェクト</h5>
+                    <button>＋　新しいプロジェクト</button>
+                </div>
+
+                <div class="sidebar__log">
+                    <h5>アクション</h5>
+                    <button>メモ</button>
+                    <button>タスク追加</button>
+                    <button>カテゴリー追加</button>
+                    <button>ログ入力</button>
+                </div>
+
+                <div class="sidebar__footer">
+                    <button>設定</button>
+                    <button>ヘルプ/フィードバック</button>
+                </div>
+
+            </aside>
+
+            <main class="app"></main>
+            
+        </div>
+
+        <div class="overlay">
+
+            <div class="modal-root"></div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const h = document.querySelector(".hambarger");
+        h.addEventListener("click", () =>{
+            document.querySelector(".sidebar").classList.toggle("open");
+            document.querySelector(".overlay").classList.toggle("sidebar-open")
+        })
+    </script>
+
+</body>
+</html>

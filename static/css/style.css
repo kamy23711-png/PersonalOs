@@ -1,0 +1,227 @@
+/* =========================
+   リセット
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+    background:#1e1e1e;
+    font-size: 16px;
+    color:white;
+}
+
+/* =========================
+   レイアウト全体
+========================= */
+
+.layout{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+header{
+    height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    border-bottom:1px solid #ddd;
+}
+
+header nav{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+header input{
+    height:30px;
+    padding:0 8px;
+}
+
+
+/* =========================
+   Main
+========================= */
+
+.body{
+    flex:1;
+    display:flex;
+    overflow:hidden;
+}
+
+
+/* =========================
+   Sidebar
+========================= */
+
+.sidebar{
+    width:230px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items: center;
+
+    border-right:1px solid #ddd;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.3);
+
+    z-index: 100;
+}
+
+.sidebar__menu,
+.sidebar__project,
+.sidebar__log,
+.sidebar__footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    padding:10px;
+    border-bottom:1px solid rgb(118, 118, 117);
+}
+
+/* サイドバー見出し */
+.sidebar h5{
+    color: rgb(118, 118, 117);
+}
+
+/* 各種ボタン */
+.sidebar button{
+    color: rgb(163, 161, 161);
+    font-size: 0.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    color: white;
+}
+
+/* メニュー */
+.sidebar__menu{
+    flex: 1;
+}
+
+/* プロジェクト */
+.sidebar__project{
+    flex: 1;
+    overflow:auto;
+}
+
+/* ログ */
+.sidebar__log{
+    flex: 1;
+    overflow:auto;
+}
+
+/* フッター */
+.sidebar__footer{
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   Appエリア
+========================= */
+
+.app{
+    flex:1;
+    padding:20px;
+    overflow:auto;
+}
+
+
+
+/* =========================
+   ハンバーガー
+========================= */
+
+.hambarger{
+    width:30px;
+    height:20px;
+
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index: 100;
+
+    cursor:pointer;
+
+}
+
+.hambarger span{
+    height:3px;
+    background:floralwhite;
+    display:block;
+}
+
+/* =========================
+   オーバーレイ
+========================= */
+
+.overlay{
+    position: fixed;
+    inset: 0;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2;
+}
+
+.overlay.sidebar-open{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =========================
+   レスポンシブ
+========================= */
+@media (max-width:768px){
+    .sidebar{
+        position: fixed;
+        top: 60px;
+        right: 0;
+
+         height: calc(100vh - 60px);
+
+        background: #1e1e1e;
+        border:1px solid #ddd;
+        z-index: 100;
+
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+
+    }
+
+    .sidebar.open{
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .hambarger{
+        display: flex;
+    }
+}
